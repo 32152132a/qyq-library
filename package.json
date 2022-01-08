@@ -1,5 +1,5 @@
 {
-  "name": "library",
+  "name": "qyq-library",
   "version": "0.1.13",
   "private": false,
   "main": "lib/smpui.umd.min.js",
@@ -13,13 +13,10 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lib": "vue-cli-service build --target lib --name smpui --dest lib src/index.js",
+    "lib": "vue-cli-service build --target lib --name qyq-library --dest lib src/index.js",
     "doc": "vue-styleguidist server",
     "doc:build": "vue-styleguidist build",
     "prepublishOnly": "npm run lib"
-  },
-  "publishConfig": {
-    "registry": "http://npm.repo.dtminds.cn/repository/npm-hosted/"
   },
   "dependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.16.5",

@@ -1,29 +1,31 @@
 // 导入组件
 // import message from "./message/src/message.vue";
-import { EventBus } from "@/api/event-bus.js";
-import Vue from 'vue'
-import Antd from 'ant-design-vue'
+import { EventBus } from "@/services/event-bus.js";
+import Vue from "vue";
+import Antd from "ant-design-vue";
 
 import DtSearchMember from "@/components/pro/DtSearchMember/DtSearchMember.vue";
 
-Vue.use(Antd)
+Vue.use(Antd);
 // 存储组件列表
 export const packageComponents = [
   // message,
   DtSearchMember,
 ];
 
-packageComponents.forEach(component => {
-
+packageComponents.forEach((component) => {
   component.install = function (Vue) {
     Vue.component(component.name, component);
-  }
+  };
 });
 
 export const setEnv = (env) => {
   EventBus.$emit("setEnv", env);
-  console.log("🚀 ~ file: index.js ~ line 20 ~ install ~ 测试获取主项目中的环境变量env", env);
-}
+  console.log(
+    "🚀 ~ file: index.js ~ line 20 ~ install ~ 测试获取主项目中的环境变量env",
+    env
+  );
+};
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
 const install = function (Vue, env) {
@@ -31,7 +33,7 @@ const install = function (Vue, env) {
   if (install.installed) return;
   // 判断是否可以正确接受第二个参数
   if (env) {
-    setEnv(env)
+    setEnv(env);
   }
   // 遍历注册全局组件
   packageComponents.map((component) =>

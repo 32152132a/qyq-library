@@ -19,12 +19,8 @@
         <div v-if="memberName.length > 0" class="tip">
           已选{{ memberName.length }}项
         </div>
-        <div v-if="memberName.length > 3" style="float: right">
-          ...
-        </div>
-        <span v-if="memberName.length === 0" class="nonelength">
-          请选择
-        </span>
+        <div v-if="memberName.length > 3" style="float: right">...</div>
+        <span v-if="memberName.length === 0" class="nonelength"> 请选择 </span>
       </div>
     </div>
     <a-modal
@@ -44,7 +40,10 @@
           />
           <div class="treecontain">
             <div>
-              <div v-if="searchFlag === false" :class="{'single-mode': !checkable}">
+              <div
+                v-if="searchFlag === false"
+                :class="{ 'single-mode': !checkable }"
+              >
                 <a-tree
                   v-model="memberKey"
                   :checkable="checkable"
@@ -78,7 +77,9 @@
                   <template slot="custom" slot-scope="{ title, avatar }">
                     <a-space :size="6">
                       <img class="tree-avatar" :src="avatar" alt="" />
-                      <span :title="title" class="text-ellipsis">{{ title }}</span>
+                      <span :title="title" class="text-ellipsis">{{
+                        title
+                      }}</span>
                     </a-space>
                     <a-icon type="check" class="node-check-icon" />
                   </template>
@@ -87,7 +88,10 @@
               <div v-if="searchFlag === true" class="search-title">
                 包含“{{ keyWords }}”的搜索结果
               </div>
-              <div v-if="searchFlag === true" :class="['search-list', checkable ? '' : 'single-mode']">
+              <div
+                v-if="searchFlag === true"
+                :class="['search-list', checkable ? '' : 'single-mode']"
+              >
                 <a-tree
                   v-if="searchFlag === true"
                   v-model="memberKey"
@@ -128,7 +132,11 @@
                         <img class="tree-avatar" :src="avatar" alt="" />
                         <span class="search-tree-node-title">
                           <span :title="title">{{ title }}</span>
-                          <span :title="departmentName" class="tree-department-name">{{ departmentName }}</span>
+                          <span
+                            :title="departmentName"
+                            class="tree-department-name"
+                            >{{ departmentName }}</span
+                          >
                         </span>
                       </a-space>
                       <a-icon type="check" class="node-check-icon" />
@@ -196,7 +204,7 @@
 <script>
 import uniqBy from "lodash/uniqBy";
 import cloneDeep from "lodash/cloneDeep";
-import myAxios from "@/api/request";
+import myAxios from "@/services/request";
 // import { treeData } from './data';
 export default {
   // name: "dt-member-selector",
@@ -225,8 +233,8 @@ export default {
     },
   },
   model: {
-    prop: 'selectedMembers',
-    event: 'onChange'
+    prop: "selectedMembers",
+    event: "onChange",
   },
   data() {
     return {
@@ -273,7 +281,7 @@ export default {
         this.selectedKeys = [];
         this.memberName = [];
       }
-    }
+    },
     // treeData: {
     //   handler(treeData) {
     //     if (treeData) {
@@ -438,7 +446,10 @@ export default {
     // 弹框内删除已选成员
     deleteSelected(id) {
       // this.selectedKeys.splice(this.selectedKeys.indexOf(id), 1);
-      this.memberName.splice(this.memberName.findIndex(mn => mn.id == id), 1);
+      this.memberName.splice(
+        this.memberName.findIndex((mn) => mn.id == id),
+        1
+      );
       this.memberRight.splice(this.memberRight.indexOf(id), 1);
       this.memberKey = this.memberRight;
     },
@@ -462,14 +473,17 @@ export default {
       // this.selectedKeys = e;
     },
     checkBottom(checkedKeys, e) {
-
       // 去重
-      this.memberRight = Array.from(new Set(this.memberRight.concat(checkedKeys)));
+      this.memberRight = Array.from(
+        new Set(this.memberRight.concat(checkedKeys))
+      );
 
       if (!e.checked) {
         // 如果是取消选中的话
         let index1 = this.memberRight.indexOf(e.node.eventKey);
-        let index2 = this.memberName.findIndex(member => member.id == e.node.eventKey);
+        let index2 = this.memberName.findIndex(
+          (member) => member.id == e.node.eventKey
+        );
         if (index1 > -1) {
           this.memberRight.splice(index1, 1);
         }
@@ -515,10 +529,13 @@ export default {
       this.visible = false;
     },
     // 删除已选成员
-    deleteMember (id) {
-      let index = this.memberName.findIndex(mn => mn.id == id);
+    deleteMember(id) {
+      let index = this.memberName.findIndex((mn) => mn.id == id);
       this.memberName.splice(index, 1);
-      this.$emit("onChange", this.memberName.map(mn => mn.id));
+      this.$emit(
+        "onChange",
+        this.memberName.map((mn) => mn.id)
+      );
     },
     setName(treeData) {
       // 遍历树  获取id数组
@@ -555,5 +572,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import './DtSearchMember.less';
+@import "./DtSearchMember.less";
 </style>
