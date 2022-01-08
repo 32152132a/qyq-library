@@ -1,0 +1,4 @@
+/* 抹平项目全局样式污染问题 */
+body {
+  overflow: auto;
+}

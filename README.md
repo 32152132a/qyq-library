@@ -1,4 +1,4 @@
-# library
+# smp-ui
 
 ## Project setup
 ```

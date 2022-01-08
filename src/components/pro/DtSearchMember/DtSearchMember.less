@@ -1,0 +1,266 @@
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
+.text-ellipsis {
+    display: block;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.single-mode .search-item {
+    &:extend(.flex-align-center);
+    justify-content: space-between;
+    padding: 8px;
+    cursor: pointer;
+    &:hover, &.selected {
+        background-color: #ECEFFF;
+    }
+
+    .ant-checkbox-wrapper {
+        width: auto;
+        margin-right: 8px;
+    }
+
+    .search-item-content {
+        &:extend(.flex-align-center);
+
+        .search-item-content-title {
+            display: flex;
+            flex-direction: column;
+            margin-left: 8px;
+
+            .tree-department-name {
+                zoom: 0.9;
+            }
+        }
+    }
+}
+
+/deep/ .ant-tree-child-tree .ant-tree-title {
+    &:extend(.flex-align-center);
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    display: inline-flex;
+    box-sizing: border-box;
+    width: 210px;
+    height: 32px;
+    margin-top: -2px;
+    padding-left: 12px;
+    overflow: hidden;
+    line-height: 32px;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    outline: 0;
+    cursor: pointer;
+    user-select: none;
+    transition: border 0.3s;
+    &:hover {
+      border-color: @primary-color;
+    }
+  }
+  .tag-body {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    margin-left: -4px;
+    padding: 0;
+  }
+  .tip {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 8px;
+    background: #fff;
+    &::before {
+      position: absolute;
+      left: -8px;
+      width: 8px;
+      height: 32px;
+      background: linear-gradient(to left, rgba(255, 255, 255, 0), #fff);
+      content: "";
+    }
+  }
+  .nonelength {
+    color: rgba(0, 0, 0, 0.25);
+    // margin-left: 9px;
+  }
+  .new-list {
+    float: left;
+    height: 32px;
+  }
+
+  /deep/.ant-modal-content {
+    width: 640px;
+  }
+  /deep/.ant-modal-body {
+    height: 410px;
+  }
+  /deep/.ant-transfer {
+    height: 330px;
+  }
+  /deep/.ant-transfer-list {
+    width: 273px;
+    height: 330px;
+  }
+  .contant {
+    margin-top: 10px;
+  }
+  .tranfres {
+    float: left;
+    width: 296px;
+    height: 361px;
+    overflow-y: auto;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    border-radius: 2px 0 0 2px;
+  }
+  .tranfresright {
+    border-left: none;
+    border-radius: 0 2px 2px 0;
+  }
+  .ant-input-search {
+    width: 254px;
+    margin: 16px 24px 8px 16px;
+  }
+  .treecontain {
+    height: 279px;
+    padding: 0 16px;
+    overflow: auto;
+  }
+  
+  /deep/ .ant-tree li {
+    padding: 0;
+    line-height: 44px;
+  
+    .node-check-icon {
+      display: none;
+      margin-left: 5px;
+      color: #5671ff;
+    }
+  
+  }
+
+  .single-mode {
+
+      /deep/ .ant-tree-treenode-selected .node-check-icon {
+        display: block;
+      }
+  }
+  
+  /deep/.ant-tree-title {
+    display: block;
+    line-height: 44px;
+  }
+  
+  /deep/ .ant-tree li span.ant-tree-switcher {
+    vertical-align: middle;
+  }
+  
+  /deep/ .ant-tree li .ant-tree-node-content-wrapper {
+    height: 44px;
+    padding: 0 8px;
+  }
+  
+  .tree-search-item {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .search-tree-node-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+
+      span {
+        &:extend(.text-ellipsis);
+      }
+  }
+
+  .tree-department-name {
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: 400;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .tree-folder-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .tree-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 2px;
+  }
+  
+  .deteleRight {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+  }
+  .rightContain {
+    height: 305px;
+    padding: 8px 0;
+    overflow: auto;
+  }
+  .rightContainul {
+    height: 24px;
+    margin-bottom: 0;
+    line-height: 24px;
+  }
+  
+  .right-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+  }
+  .right-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 2px;
+  }
+  
+  .search-title {
+    height: 22px;
+    margin-top: 4px;
+    margin-left: 14px;
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+  }
+  .search-list {
+    position: relative;
+    .ant-checkbox-wrapper {
+      width: 100%;
+    }
+  }
+  .search-group {
+    position: absolute;
+    top: 10px;
+    right: 24px;
+  }
+  .search-groupname {
+    margin-bottom: 13px;
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+  }
+  .selected-tip {
+    padding: 21px 16px 12px 16px;
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: 400;
+    font-size: 14px;
+  }
