@@ -5,7 +5,7 @@
   "main": "lib/smpui.umd.min.js",
   "description": "smp-ui",
   "keyword": "smp-ui",
-  "author": "chilinwei",
+  "author": "qyq",
   "files": [
     "lib"
   ],
